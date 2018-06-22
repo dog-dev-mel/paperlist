@@ -11,16 +11,65 @@
     <a href="https://github.com/chandlerone/paperlist" target="_blank">
 <img src="logo.png" width="150" height="150" alt="Data Mining Ranking Searching Engine" title="Data Mining Ranking Searching Engine">
 </a>
+
+
+    <form name="papernameform">
+        <br><br>Input Paper name:<br><br>
+        <input type="text" name="papername" value="Machine Learning" size="100">
+        <br><br>
+        <button type="button" onclick="SEALL()">全引擎搜索</button> （一次性执行下面所有按钮支持搜索引擎，CCF目录不包含在其内）
+    </form>
+
     <h1>国际搜索引擎</h1>
-    <p>1. <a href="https://www.scimagojr.com/journalrank.php" target="_blank">Scimago Journal & Country Rank</a></p>
-    <p>2. <a href="http://portal.core.edu.au/jnl-ranks/" target="_blank">Computing Research & Education Journal Portal</a></p>
-    <p>3. <a href="http://portal.core.edu.au/conf-ranks/" target="_blank">Computing Research & Education Conference Portal</a></p>
-    
+
+    <p id="SE_01"><button type="button" onclick="SE01()">单引擎查询</button> <a href="https://www.scimagojr.com/journalrank.php" target="_blank">Scimago Journal & Country Rank</a></p>
+    <p id="SE_02"><button type="button" onclick="SE02()">单引擎查询</button> <a href="http://portal.core.edu.au/jnl-ranks/" target="_blank">Computing Research & Education Journal Portal</a></p>
+    <p id="SE_03"><button type="button" onclick="SE03()">单引擎查询</button> <a href="http://portal.core.edu.au/conf-ranks/" target="_blank">Computing Research & Education Conference Portal</a></p>
     <h1>国内搜索引擎</h1>
-    <p>1. <a href="http://muchong.com/bbs/journal.php" target="_blank">小木虫</a></p>
-    <p>2. <a href="https://www.letpub.com.cn/index.php?page=journalapp&fieldtag=&firstletter=" target="_blank">中科院推荐分区</a></p>
-    <p>3. <a href="http://history.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2903940690839" target="_blank">CCF 人工智能</a></p>
-	<p>4. <a href="http://history.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2903940690081" target="_blank">CCF 数据库/数据挖掘/内容检索</a></p>
+    <p id="SE_04"><button type="button" onclick="SE04()">单引擎查询</button> <a href="http://muchong.com/bbs/journal.php" target="_blank">小木虫</a></p>
+    <p id="SE_05"><button type="button" onclick="SE05()">Google引擎查询</button> <a href="https://www.letpub.com.cn/index.php?page=journalapp&fieldtag=&firstletter=" target="_blank">中科院推荐分区</a></p>
+    <h1>CCF 目录</h1>
+    <p><a href="http://history.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2903940690839" target="_blank">CCF 人工智能 目录</a></p>
+    <p><a href="http://history.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2903940690081" target="_blank">CCF 数据库/数据挖掘/内容检索 目录</a></p>
+    <script language="javascript">
+        function SE01() {
+            var paper_name = papernameform.papername.value;
+            url_SE01 = "https://www.scimagojr.com/journalsearch.php?q=" + paper_name
+            window.open(encodeURI(url_SE01.replace(' ', '+')))
+        }
+
+        function SE02() {
+            var paper_name = papernameform.papername.value;
+            url_SE02 = "http://portal.core.edu.au/jnl-ranks/?search=" + paper_name + "&by=all&source=all&sort=atitle&page=1"
+            window.open(encodeURI(url_SE02.replace(' ', '+')))
+        }
+
+        function SE03() {
+            var paper_name = papernameform.papername.value;
+            url_SE03 = "http://portal.core.edu.au/conf-ranks/?search=" + paper_name + "&by=all&source=all&sort=atitle&page=1"
+            window.open(encodeURI(url_SE03.replace(' ', '+')))
+        }
+
+        function SE04() {
+            var paper_name = papernameform.papername.value;
+            url_SE04 = "http://muchong.com/bbs/journal.php?issn=&tagname=&name=" + paper_name + "&ssubmit=%CB%D1%CB%F7"
+            window.open(encodeURI(url_SE04.replace(' ', '+')))
+        }
+
+        function SE05() {
+            var paper_name = papernameform.papername.value;
+            url_SE05 = "https://www.google.com.au/search?q=letpub+" + paper_name + "&oq=letpub+" + paper_name
+            window.open(encodeURI(url_SE05.replace(' ', '+')))
+        }
+
+        function SEALL() {
+            SE01()
+            SE02()
+            SE03()
+            SE04()
+            SE05()
+        }
+    </script>
 </body>
 
 </html>
